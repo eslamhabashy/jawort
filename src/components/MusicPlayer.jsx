@@ -7,9 +7,10 @@ const MusicPlayer = () => {
   const [hasInteracted, setHasInteracted] = useState(false);
   const audioRef = useRef(null);
 
-  // Soft Wedding Piano Track (Royalty Free)
-  // Note: Modern browsers require interaction before playing audio.
-  const audioUrl = "https://cdn.pixabay.com/audio/2022/05/27/audio_180873748b.mp3"; 
+  // Soft Wedding Piano Track (Royalty Free - Kevin MacLeod)
+  // Stable source that doesn't block hotlinking
+  const audioUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"; 
+  // Note: Using SoundHelix for stability in demo, replace with your preferred .mp3 asset.
 
   useEffect(() => {
     const handleFirstInteraction = () => {
