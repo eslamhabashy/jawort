@@ -11,6 +11,7 @@ const resources = {
         start: 'Jetzt starten'
       },
       hero: {
+        overline: 'Digitale Hochzeitseinladungen',
         title: 'Dein Jawort. Unvergesslich.',
         subtitle: 'Personalisierte digitale Hochzeitseinladungen mit RSVP, interaktiven Karten und deiner eigenen Hochzeitsseite.',
         ctaPrimary: 'Vorlagen entdecken',
@@ -161,6 +162,7 @@ const resources = {
         start: 'Get started'
       },
       hero: {
+        overline: 'Digital Wedding Invitations',
         title: 'Jawort. Unforgettable.',
         subtitle: 'Personalized digital wedding invitations with RSVP, interactive maps, and your own wedding page.',
         ctaPrimary: 'Explore Templates',

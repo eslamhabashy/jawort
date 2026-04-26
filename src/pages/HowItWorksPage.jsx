@@ -39,11 +39,11 @@ const HowItWorksPage = () => {
   ];
 
   return (
-    <div className="section-padding page-clearance">
+    <div className="section-padding page-clearance" style={{ backgroundColor: 'var(--parchment)', minHeight: '100vh' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-          <h1 style={{ fontSize: '4rem', marginBottom: '20px' }}>{t('howItWorksPage.title')}</h1>
-          <p style={{ opacity: 0.6, maxWidth: '600px', margin: '0 auto' }}>
+          <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', marginBottom: '24px' }}>{t('howItWorksPage.title')}</h1>
+          <p style={{ opacity: 0.6, maxWidth: '600px', margin: '0 auto', fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>
             {t('howItWorksPage.subtitle')}
           </p>
         </div>
