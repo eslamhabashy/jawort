@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@100..900&display=swap');
+
+:root {
+  --warm-black: #1A1714;
+  --parchment: #FCF9F5;
+  --champagne-gold: #B38E66;
+  --burgundy: #682732;
+  --sand: #E8E2D8;
+  --white: #FFFFFF;
+  
+  --primary: var(--warm-black);
+  --secondary: var(--parchment);
+  --accent: var(--burgundy);
+  --accent-gold: var(--champagne-gold);
+  
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Montserrat", sans-serif;
+  
+  --container-max: 1200px;
+  --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  --section-padding: 120px 24px;
+  --nav-height: 100px;
+  --logo-height: 130px;
+  --radius-premium: 16px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 80px 20px;
+    --nav-height: 70px;
+    --logo-height: 90px;
+  }
+}
+
+/* ─── Global Reset ────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background-color: var(--parchment);
+  color: var(--warm-black);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* ─── Typography ──────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: var(--font-sans);
+  transition: var(--transition-smooth);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ─── Layout ──────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ─── Utility ─────────────────────────────────────── */
+.fixed { position: fixed; }
+.top-0 { top: 0; }
+.left-0 { left: 0; }
+.w-full { width: 100%; }
+.z-50 { z-index: 50; }
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.relative { position: relative; }
+.overflow-hidden { overflow: hidden; }
+
+.page-clearance {
+  padding-top: var(--nav-height);
+}
+
+.section-padding {
+  padding: var(--section-padding);
+}
+
+/* ─── Buttons ─────────────────────────────────────── */
+.premium-button {
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  box-shadow: 0 10px 25px rgba(104, 39, 50, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.premium-button:hover {
+  background-color: #551e28;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(104, 39, 50, 0.3);
+}
+
+.premium-button.secondary {
+  background-color: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  box-shadow: none;
+}
+
+.premium-button.secondary:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+/* ─── Navbar ──────────────────────────────────────── */
+.glass {
+  background: rgba(252, 249, 245, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ─── Floating CTA ────────────────────────────────── */
+.floating-mobile-cta {
+  position: fixed;
+  bottom: 24px;
+  left: 16px;
+  right: 16px;
+  z-index: 100;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .floating-mobile-cta {
+    display: block;
+  }
+}
+
+/* ─── Responsive Nav Helpers ──────────────────────── */
+.desktop-nav-links {
+  display: none;
+}
+.mobile-nav-toggle {
+  display: flex;
+}
+
+@media (min-width: 1024px) {
+  .desktop-nav-links {
+    display: flex;
+  }
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
+
+/* ─── Responsive Grid Helpers ─────────────────────── */
+.responsive-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .responsive-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.responsive-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .responsive-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ─── Scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--warm-black); }
+::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 10px; }
