@@ -6,7 +6,12 @@ const TemplateShowcase = () => {
   const { t } = useTranslation();
 
   const templates = [
-    { name: 'Noir', id: 'noir', badge: 'Timeless' },
+    { 
+      name: 'Noir', 
+      id: 'noir', 
+      badge: 'Timeless',
+      liveUrl: 'https://premiumelegante.thedigitalyes.com/'
+    },
     { name: 'Bloom', id: 'bloom', badge: 'Popular' },
     { name: 'Majestic', id: 'majestic', badge: 'Exclusive' }
   ];
@@ -30,12 +35,59 @@ const TemplateShowcase = () => {
                 borderRadius: 'var(--radius-premium)',
                 background: 'var(--parchment)',
                 border: '1px solid var(--sand)',
-                transition: 'var(--transition-smooth)'
+                transition: 'var(--transition-smooth)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
               }}
             >
+              {/* Mobile Mockup */}
+              <div style={{ 
+                width: '140px', 
+                height: '280px', 
+                background: 'var(--warm-black)', 
+                borderRadius: '24px', 
+                border: '6px solid #1a1a1a', 
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: '0 15px 30px rgba(0,0,0,0.15)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: '24px'
+              }}>
+                {template.liveUrl ? (
+                  <iframe 
+                    src={template.liveUrl}
+                    title={template.name}
+                    loading="lazy"
+                    style={{ 
+                      width: '100%', 
+                      height: '100%', 
+                      border: 'none',
+                      pointerEvents: 'none'
+                    }}
+                  />
+                ) : (
+                  <span style={{ color: 'var(--accent)', fontFamily: 'var(--font-serif)', fontSize: '1rem' }}>{template.name}</span>
+                )}
+                
+                {/* Phone Notch/Speaker */}
+                <div style={{ 
+                  position: 'absolute', 
+                  top: '0', 
+                  width: '45px', 
+                  height: '14px', 
+                  background: '#1a1a1a', 
+                  borderBottomLeftRadius: '8px', 
+                  borderBottomRightRadius: '8px',
+                  zIndex: 10
+                }} />
+              </div>
+
               {template.badge && (
                 <span style={{ 
-                  fontSize: '0.65rem', 
+                  fontSize: '0.6rem', 
                   textTransform: 'uppercase', 
                   letterSpacing: '0.1em', 
                   color: 'var(--accent-gold)', 
@@ -46,8 +98,12 @@ const TemplateShowcase = () => {
                   {template.badge}
                 </span>
               )}
-              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 1.75rem)', marginBottom: '20px' }}>{template.name}</h3>
-              <button className="premium-button secondary" style={{ padding: '10px 24px', fontSize: '0.7rem' }}>
+              <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', marginBottom: '20px' }}>{template.name}</h3>
+              <button 
+                className="premium-button secondary" 
+                style={{ padding: '10px 24px', fontSize: '0.7rem' }}
+                onClick={() => template.liveUrl && window.open(template.liveUrl, '_blank')}
+              >
                 {t('templates.demo')}
               </button>
             </motion.div>
@@ -55,6 +111,7 @@ const TemplateShowcase = () => {
         </div>
       </div>
     </section>
+
   );
 };
 
