@@ -7,7 +7,12 @@ const TemplatesPage = () => {
   const { t } = useTranslation();
 
   const allTemplates = [
-    { name: 'Noir', price: 'Premium', style: 'Modern & Dark' },
+    { 
+      name: 'Noir', 
+      price: 'Premium', 
+      style: 'Modern & Dark',
+      liveUrl: 'https://premiumelegante.thedigitalyes.com/'
+    },
     { name: 'Bloom', price: 'Starter', style: 'Floral & Light' },
     { name: 'Majestic', price: 'Deluxe', style: 'Royal & Gold' },
     { name: 'Minimal', price: 'Starter', style: 'Clean & Simple' },
@@ -40,22 +45,67 @@ const TemplatesPage = () => {
               whileHover={{ y: -10 }}
               style={{ background: 'var(--white)', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}
             >
-              <div style={{ height: '400px', background: 'var(--sand)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {/* Simplified Mockup Placeholder */}
-                <div style={{ width: '180px', height: '360px', background: 'var(--warm-black)', borderRadius: '20px', border: '4px solid var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                   <span style={{ color: 'var(--accent)', fontFamily: 'var(--font-serif)' }}>{template.name}</span>
+              <div style={{ height: '400px', background: 'var(--sand)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+                {/* Mobile Mockup */}
+                <div style={{ 
+                  width: '180px', 
+                  height: '360px', 
+                  background: 'var(--warm-black)', 
+                  borderRadius: '30px', 
+                  border: '8px solid #1a1a1a', 
+                  position: 'relative',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  {template.liveUrl ? (
+                    <iframe 
+                      src={template.liveUrl}
+                      title={template.name}
+                      loading="lazy"
+                      style={{ 
+                        width: '100%', 
+                        height: '100%', 
+                        border: 'none',
+                        pointerEvents: 'none'
+                      }}
+                    />
+                  ) : (
+                    <span style={{ color: 'var(--accent)', fontFamily: 'var(--font-serif)', fontSize: '1.2rem' }}>{template.name}</span>
+                  )}
+                  
+                  {/* Phone Notch/Speaker */}
+                  <div style={{ 
+                    position: 'absolute', 
+                    top: '0', 
+                    width: '60px', 
+                    height: '18px', 
+                    background: '#1a1a1a', 
+                    borderBottomLeftRadius: '10px', 
+                    borderBottomRightRadius: '10px',
+                    zIndex: 10
+                  }} />
                 </div>
               </div>
               <div style={{ padding: '30px', textAlign: 'center' }}>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '5px' }}>{template.name}</h3>
                 <p style={{ fontSize: '0.8rem', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px' }}>{template.style}</p>
-                <button className="premium-button secondary" style={{ width: '100%' }}>{t('templatesPage.liveDemo')}</button>
+                <button 
+                  className="premium-button secondary" 
+                  style={{ width: '100%' }}
+                  onClick={() => template.liveUrl && window.open(template.liveUrl, '_blank')}
+                >
+                  {t('templatesPage.liveDemo')}
+                </button>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
     </div>
+
   );
 };
 
