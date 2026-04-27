@@ -7,7 +7,6 @@ import HowItWorks from './components/HowItWorks';
 import TemplateShowcase from './components/TemplateShowcase';
 import { Features, Pricing } from './components/PricingFeatures';
 import { Testimonials, FinalCTA, Footer } from './components/FooterSections';
-import MusicPlayer from './components/MusicPlayer';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Real Pages
@@ -107,7 +106,6 @@ function App() {
       <ScrollToTop />
       <div className="App">
         <Navbar />
-        <MusicPlayer />
         <main>
           <Routes>
             <Route path="/" element={<LandingPage />} />
