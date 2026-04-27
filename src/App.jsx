@@ -91,8 +91,8 @@ const CookieBanner = () => {
 const LandingPage = () => (
   <>
     <Hero />
-    <HowItWorks />
     <TemplateShowcase />
+    <HowItWorks />
     <Features />
     <Pricing />
     <Testimonials />

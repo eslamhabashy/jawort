@@ -260,7 +260,10 @@ const Hero = () => {
           <button className="premium-button">
             {t('hero.ctaPrimary')}
           </button>
-          <button className="premium-button secondary">
+          <button 
+            className="premium-button secondary"
+            onClick={() => document.getElementById('templates')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             {t('hero.ctaSecondary')}
           </button>
         </motion.div>
