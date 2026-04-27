@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
@@ -17,6 +17,8 @@ const TemplateShowcase = () => {
     { name: 'Minimal', id: 'minimal', badge: 'Clean' },
     { name: 'Vintage', id: 'vintage', badge: 'Classic' }
   ];
+
+  const constraintsRef = useRef(null);
 
   return (
     <section id="templates" style={{ backgroundColor: 'var(--white)', padding: 'var(--section-padding)', overflow: 'hidden' }}>
@@ -40,13 +42,15 @@ const TemplateShowcase = () => {
         </motion.p>
         
         {/* Carousel Container */}
-        <motion.div 
-          style={{ cursor: 'grab' }}
-          whileTap={{ cursor: 'grabbing' }}
+        <div 
+          ref={constraintsRef}
+          style={{ cursor: 'grab', overflow: 'visible' }}
         >
           <motion.div 
             drag="x"
-            dragConstraints={{ right: 0, left: -600 }} // Adjust based on content width
+            dragConstraints={constraintsRef}
+            dragElastic={0.1}
+            whileTap={{ cursor: 'grabbing' }}
             style={{ 
               display: 'flex', 
               gap: '30px', 
