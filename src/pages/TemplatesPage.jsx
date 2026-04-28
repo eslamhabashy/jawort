@@ -11,7 +11,7 @@ const TemplatesPage = () => {
       name: 'Noir', 
       price: 'Premium', 
       style: 'Modern & Dark',
-      liveUrl: 'https://premiumelegante.thedigitalyes.com/'
+      // liveUrl: 'https://premiumelegante.thedigitalyes.com/'
     },
     { name: 'Bloom', price: 'Starter', style: 'Floral & Light' },
     { name: 'Majestic', price: 'Deluxe', style: 'Royal & Gold' },
@@ -94,8 +94,8 @@ const TemplatesPage = () => {
                 <p style={{ fontSize: '0.8rem', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px' }}>{template.style}</p>
                 <button 
                   className="premium-button secondary" 
-                  style={{ width: '100%' }}
-                  onClick={() => template.liveUrl && window.open(template.liveUrl, '_blank')}
+                  style={{ width: '100%', opacity: 0.5, cursor: 'not-allowed' }}
+                  disabled
                 >
                   {t('templatesPage.liveDemo')}
                 </button>

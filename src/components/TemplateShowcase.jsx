@@ -10,7 +10,7 @@ const TemplateShowcase = () => {
       name: 'Noir', 
       id: 'noir', 
       badge: 'Timeless',
-      liveUrl: 'https://premiumelegante.thedigitalyes.com/'
+      // liveUrl: 'https://premiumelegante.thedigitalyes.com/'
     },
     { name: 'Bloom', id: 'bloom', badge: 'Popular' },
     { name: 'Majestic', id: 'majestic', badge: 'Exclusive' },
@@ -134,8 +134,8 @@ const TemplateShowcase = () => {
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '20px' }}>{template.name}</h3>
                 <button 
                   className="premium-button secondary" 
-                  style={{ padding: '10px 24px', fontSize: '0.7rem' }}
-                  onClick={() => template.liveUrl && window.open(template.liveUrl, '_blank')}
+                  style={{ padding: '10px 24px', fontSize: '0.7rem', opacity: 0.5, cursor: 'not-allowed' }}
+                  disabled
                 >
                   {t('templates.demo')}
                 </button>
